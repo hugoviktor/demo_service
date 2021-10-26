@@ -6,16 +6,20 @@
 
 
 
-(defn anticipate-payment-case [{{account-id :id} :data}]
-  {
-   :status 200
-   :body   (payment-anticipator/anticipate account-id)
-   }
-  )
+(defn anticipate-payment-case [data]
+  (let [account-id (get-in data [:path-params :id])]
+    {
+     :status 200
+     :body   (payment-anticipator/anticipate account-id)
+     }
+    ))
 
+
+
+(def common-interceptors [(body-params/body-params) http/json-body])
 
 
 ;; Tabular routes
-(def routes #{["/anticipate/:id" :get anticipate-payment-case
+(def routes #{["/anticipate/:id" :get (conj common-interceptors anticipate-payment-case)
                :route-name :do-anticipate]
               })
