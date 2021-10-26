@@ -13,8 +13,8 @@
                  [com.taoensso/timbre "4.10.0"]
                  [yogthos/config "1.1.7"]]
   :resource-paths ["config", "resources"]
-  :profiles {:dev     {:aliases      {"run-dev" ["trampoline" "run" "-m" "github-jobs.server/main"]}
+  :profiles {:dev     {:aliases      {"run-dev" ["trampoline" "run" "-m" "hexagon.server/main"]}
                        :dependencies [[io.pedestal/pedestal.service-tools "0.5.8"]]}
-             :uberjar {:aot [github-jobs.server]}}
+             :uberjar {:aot [hexagon.server]}}
   :main ^{:skip-aot true} hexagon.server
   :repl-options {:init-ns hexagon.server})
