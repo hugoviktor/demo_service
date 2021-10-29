@@ -4,5 +4,5 @@
             ))
 
 (defn anticipate [account-id]
-  (let [loans (loan-manager/all-loans account-id) anticipations (map #(debts-manager/anticipate-loan (:id %) account-id) loans)]
-    anticipations))
+  (->> (loan-manager/all-loans account-id)
+       (map #(debts-manager/anticipate-loan (:id %) account-id))))
