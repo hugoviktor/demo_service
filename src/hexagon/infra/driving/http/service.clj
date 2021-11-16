@@ -2,11 +2,14 @@
   (:require [hexagon.domain.cases.payment-anticipator :as payment-anticipator]
             [io.pedestal.http :as http]
             [io.pedestal.http.route :as route]
-            [io.pedestal.http.body-params :as body-params]))
+            [io.pedestal.http.body-params :as body-params]
+            [hexagon.infra.driven.tracing.tracer :as tracer]
+            ))
 
 
 
 (defn anticipate-payment-case [data]
+  (tracer/trace "Entering anticipate case")
   (let [account-id (get-in data [:path-params :id])]
     {
      :status 200

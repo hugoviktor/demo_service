@@ -17,4 +17,7 @@
                        :dependencies [[io.pedestal/pedestal.service-tools "0.5.8"]]}
              :uberjar {:aot [hexagon.server]}}
   :main ^{:skip-aot true} hexagon.server
+  :java-cmd "/Users/victor.julio/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/bin/java"
+  :javac-options ["-parameters"]
+  ;:jvm-opts ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=6789" "-javaagent:/Users/victor.julio/Documents/nu/pocdebug/rook.jar.src/target/rook.jar.src-1.0-SNAPSHOT-jar-with-dependencies.jar"]
   :repl-options {:init-ns hexagon.server})
