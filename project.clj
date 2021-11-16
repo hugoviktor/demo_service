@@ -11,13 +11,17 @@
                  [io.pedestal/pedestal.route "0.5.8"]
                  [io.pedestal/pedestal.jetty "0.5.8"]
                  [com.taoensso/timbre "4.10.0"]
-                 [yogthos/config "1.1.7"]]
+                 [yogthos/config "1.1.7"]
+                 [clj-http "3.12.3"]
+                 [org.clojure/tools.reader "1.3.6"]
+                 [cheshire "5.10.1"]
+                 [org.clojure/data.json "2.4.0"]]
   :resource-paths ["config", "resources"]
   :profiles {:dev     {:aliases      {"run-dev" ["trampoline" "run" "-m" "hexagon.server/main"]}
                        :dependencies [[io.pedestal/pedestal.service-tools "0.5.8"]]}
              :uberjar {:aot [hexagon.server]}}
   :main ^{:skip-aot true} hexagon.server
   :java-cmd "/Users/victor.julio/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/bin/java"
-  :javac-options ["-parameters"]
+  ;:javac-options ["-parameters"]
   ;:jvm-opts ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=6789" "-javaagent:/Users/victor.julio/Documents/nu/pocdebug/rook.jar.src/target/rook.jar.src-1.0-SNAPSHOT-jar-with-dependencies.jar"]
   :repl-options {:init-ns hexagon.server})
